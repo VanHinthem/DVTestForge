@@ -43,11 +43,7 @@ export { expect };
 // tests/app.spec.ts (illustrative only; customize the readiness assertion)
 import { test, expect } from './fixtures.js';
 
-test('opens an approved model-driven app', async ({
-  page,
-  dataverseApp,
-  dataverseConfig,
-}) => {
+test('opens an approved model-driven app', async ({ page, dataverseApp, dataverseConfig }) => {
   await dataverseApp.open(dataverseConfig, async () => {
     await expect(page.locator('YOUR-VERIFIED-CSS-SELECTOR')).toBeVisible();
   });

@@ -9,10 +9,7 @@ import { createInterface } from 'node:readline/promises';
 import process, { stdin, stdout, stderr } from 'node:process';
 import { URL } from 'node:url';
 import { chromium } from '@playwright/test';
-import {
-  captureAuthenticatedState,
-  loadDataverseConfig,
-} from '../dist/index.js';
+import { captureAuthenticatedState, loadDataverseConfig } from '../dist/index.js';
 
 async function main() {
   if (process.env.CI || !stdin.isTTY) {
@@ -22,9 +19,7 @@ async function main() {
   const config = loadDataverseConfig();
   const readySelector = process.env.DATAVERSE_READY_SELECTOR?.trim();
   if (!readySelector) {
-    throw new Error(
-      'DATAVERSE_READY_SELECTOR is required. Use a locator verified in your app.',
-    );
+    throw new Error('DATAVERSE_READY_SELECTOR is required. Use a locator verified in your app.');
   }
 
   const browser = await chromium.launch({ headless: false });
@@ -34,9 +29,7 @@ async function main() {
     const page = await context.newPage();
     await page.goto(config.appUrl, { waitUntil: 'domcontentloaded' });
 
-    stdout.write(
-      'Sign in using your organization-approved Entra ID method in the browser.\n',
-    );
+    stdout.write('Sign in using your organization-approved Entra ID method in the browser.\n');
     await prompt.question(
       'After the intended app is fully loaded, press Enter to verify and save state: ',
     );
