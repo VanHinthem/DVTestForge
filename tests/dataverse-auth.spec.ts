@@ -1,8 +1,5 @@
 import { expect, test, type Page } from '@playwright/test';
-import {
-  captureAuthenticatedState,
-  resolveAuthStatePath,
-} from '../src/auth/dataverse-auth.js';
+import { captureAuthenticatedState, resolveAuthStatePath } from '../src/auth/dataverse-auth.js';
 
 test('rejects empty auth state paths', () => {
   expect(() => resolveAuthStatePath('   ')).toThrow();

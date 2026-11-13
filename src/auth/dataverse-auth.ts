@@ -6,9 +6,7 @@ import type { Page } from '@playwright/test';
 export const DEFAULT_AUTH_STATE_PATH = 'playwright/.auth/user.json';
 
 /** Resolve a path so consumers can pass it to Playwright's storageState option. */
-export function resolveAuthStatePath(
-  path: string = DEFAULT_AUTH_STATE_PATH,
-): string {
+export function resolveAuthStatePath(path: string = DEFAULT_AUTH_STATE_PATH): string {
   if (!path.trim()) {
     throw new Error('Authentication state path must not be empty');
   }

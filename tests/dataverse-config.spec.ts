@@ -1,8 +1,5 @@
 import { expect, test } from '@playwright/test';
-import {
-  loadDataverseConfig,
-  validateDataverseAppUrl,
-} from '../src/config/dataverse-config.js';
+import { loadDataverseConfig, validateDataverseAppUrl } from '../src/config/dataverse-config.js';
 
 test('loads a direct HTTPS model-driven app URL', () => {
   const url = 'https://example.crm.dynamics.com/main.aspx?appid=sample-app';
@@ -11,9 +8,7 @@ test('loads a direct HTTPS model-driven app URL', () => {
 
 test('accepts appname and case-insensitive main.aspx', () => {
   expect(
-    validateDataverseAppUrl(
-      'https://example.crm.dynamics.com/main.aspx?appname=myapp',
-    ),
+    validateDataverseAppUrl('https://example.crm.dynamics.com/main.aspx?appname=myapp'),
   ).toContain('appname=myapp');
 });
 

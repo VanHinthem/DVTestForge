@@ -10,10 +10,7 @@ import type { DataverseConfig } from '../config/dataverse-config.js';
 export class DataverseApp {
   constructor(private readonly page: Page) {}
 
-  async open(
-    config: DataverseConfig,
-    verifyReady: () => Promise<void>,
-  ): Promise<void> {
+  async open(config: DataverseConfig, verifyReady: () => Promise<void>): Promise<void> {
     await this.page.goto(config.appUrl, { waitUntil: 'domcontentloaded' });
     await verifyReady();
   }

@@ -7,9 +7,7 @@ export interface DataverseConfig {
  * Load a direct model-driven app URL from an environment mapping.
  * No credentials or secrets are accepted by this configuration layer.
  */
-export function loadDataverseConfig(
-  environment: NodeJS.ProcessEnv = process.env,
-): DataverseConfig {
+export function loadDataverseConfig(environment: NodeJS.ProcessEnv = process.env): DataverseConfig {
   const appUrl = environment.DATAVERSE_APP_URL?.trim();
   if (!appUrl) {
     throw new Error('DATAVERSE_APP_URL is required');
@@ -31,16 +29,8 @@ export function validateDataverseAppUrl(input: string): string {
     throw new Error('Dataverse app URL must be an absolute HTTPS URL');
   }
 
-  if (
-    url.protocol !== 'https:' ||
-    !url.hostname ||
-    url.username ||
-    url.password ||
-    url.hash
-  ) {
-    throw new Error(
-      'Dataverse app URL must use HTTPS without credentials or a fragment',
-    );
+  if (url.protocol !== 'https:' || !url.hostname || url.username || url.password || url.hash) {
+    throw new Error('Dataverse app URL must use HTTPS without credentials or a fragment');
   }
 
   if (!url.pathname.toLowerCase().endsWith('/main.aspx')) {
@@ -48,9 +38,7 @@ export function validateDataverseAppUrl(input: string): string {
   }
 
   if (!url.searchParams.get('appid') && !url.searchParams.get('appname')) {
-    throw new Error(
-      'Dataverse app URL must specify an appid or appname query parameter',
-    );
+    throw new Error('Dataverse app URL must specify an appid or appname query parameter');
   }
 
   return url.toString();

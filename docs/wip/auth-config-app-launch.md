@@ -32,11 +32,7 @@ Example shape (illustrative only):
 
 ```ts
 import { test, expect } from '@playwright/test';
-import {
-  DataverseApp,
-  loadDataverseConfig,
-  resolveAuthStatePath,
-} from 'dvtestforge-framework';
+import { DataverseApp, loadDataverseConfig, resolveAuthStatePath } from 'dvtestforge-framework';
 
 test.use({ storageState: resolveAuthStatePath() });
 
