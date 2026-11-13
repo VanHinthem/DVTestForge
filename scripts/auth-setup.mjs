@@ -6,7 +6,8 @@
  * DATAVERSE_READY_SELECTOR first. Never upload or commit the resulting state.
  */
 import { createInterface } from 'node:readline/promises';
-import { stdin, stdout } from 'node:process';
+import process, { stdin, stdout, stderr } from 'node:process';
+import { URL } from 'node:url';
 import { chromium } from '@playwright/test';
 import {
   captureAuthenticatedState,
@@ -66,6 +67,6 @@ async function main() {
 }
 
 main().catch((error) => {
-  console.error(error instanceof Error ? error.message : error);
+  stderr.write(String(error instanceof Error ? error.message : error) + '\n');
   process.exitCode = 1;
 });
