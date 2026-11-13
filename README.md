@@ -2,7 +2,7 @@
 
 A central **Playwright Test + TypeScript** automation framework for Microsoft Dataverse model-driven applications.
 
-> Early-stage scaffold: no Dataverse controls, Azure Test Plans integration, or published npm package yet.
+> Early-stage scaffold: initial form, app-launch and auth-state helpers are available, but no live Dataverse integration, Azure Test Plans adapter or published npm package yet.
 
 ## Architecture
 
@@ -22,9 +22,9 @@ npm install
 npm run check
 ```
 
-The current tests are **browser-free Playwright Test unit tests**. They validate only the initial Test Case ID tag utility. A real Dataverse tenant is **not** required.
+The current tests are **browser-free Playwright Test unit tests**. They validate framework utilities and action ordering, not live Dataverse behavior. A real Dataverse tenant is **not** required.
 
-For a fully reproducible installation, generate and commit `package-lock.json`, then switch local and CI installs to `npm ci`. The initial scaffold intentionally does not claim a lockfile or package publication.
+Use `npm ci` for a reproducible installation. See [authentication and app-launch notes](docs/wip/auth-config-app-launch.md) for the first configuration and session-handling API.
 
 ## Current layout
 
