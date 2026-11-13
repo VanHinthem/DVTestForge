@@ -25,10 +25,7 @@ export class DataverseForm {
    * assertion. An application-specific completion signal is mandatory: a click
    * alone cannot prove a Dataverse record was saved successfully.
    */
-  async saveAndVerify(
-    saveCommand: Locator,
-    verifySaved: () => Promise<void>,
-  ): Promise<void> {
+  async saveAndVerify(saveCommand: Locator, verifySaved: () => Promise<void>): Promise<void> {
     await saveCommand.click();
     await verifySaved();
   }
