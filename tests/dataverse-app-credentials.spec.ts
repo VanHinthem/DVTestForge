@@ -42,14 +42,10 @@ test('rejects malformed tenant IDs before sending credentials', async () => {
 });
 
 test('probes Dataverse WhoAmI without writing data', async () => {
-  await probeDataverseAppIdentity(
-    credentials.dataverseUrl,
-    'fake-token',
-    async (input, init) => {
-      expect(input).toBe('https://example.crm4.dynamics.com/api/data/v9.2/WhoAmI()');
-      expect(init?.method).toBe('GET');
-      expect((init?.headers as Record<string, string>).Authorization).toBe('Bearer fake-token');
-      return new Response('{}', { status: 200 });
-    },
-  );
+  await probeDataverseAppIdentity(credentials.dataverseUrl, 'fake-token', async (input, init) => {
+    expect(input).toBe('https://example.crm4.dynamics.com/api/data/v9.2/WhoAmI()');
+    expect(init?.method).toBe('GET');
+    expect((init?.headers as Record<string, string>).Authorization).toBe('Bearer fake-token');
+    return new Response('{}', { status: 200 });
+  });
 });

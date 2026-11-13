@@ -16,10 +16,7 @@ The helper `acquireDataverseAppToken()` calls the Entra OAuth2 client-credential
 Import from the framework package, or use its built output. Do not print tokens, secrets, auth responses or user identifiers in logs. Never commit credentials, and never put them in a chat or PR.
 
 ```ts
-import {
-  acquireDataverseAppToken,
-  probeDataverseAppIdentity,
-} from 'dvtestforge-framework';
+import { acquireDataverseAppToken, probeDataverseAppIdentity } from 'dvtestforge-framework';
 
 const dataverseUrl = process.env.DATAVERSE_API_URL!;
 const credentials = {
@@ -36,6 +33,6 @@ console.log('Dataverse app-only API authentication succeeded');
 
 Do **not** try to inject this token into browser cookies or localStorage; this token represents the app, not an interactive user browser session.
 
-If the probe succeeds, it supports future API-based test setup, cleanup, and assertions. We still need a policy-approved *user/browser* authentication method for Playwright UI tests.
+If the probe succeeds, it supports future API-based test setup, cleanup, and assertions. We still need a policy-approved _user/browser_ authentication method for Playwright UI tests.
 
 See Microsoft's [Dataverse authentication documentation](https://learn.microsoft.com/en-us/power-apps/developer/data-platform/authentication) and [Power Platform Playwright authentication guide](https://learn.microsoft.com/en-us/power-platform/developer/playwright-samples/authentication-guide).
