@@ -1,0 +1,29 @@
+name: Quality
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      # Bootstrap phase: a lockfile is not yet checked in. Replace npm install
+      # with npm ci as soon as package-lock.json is generated and committed.
+      - run: npm install --no-audit --no-fund
+      - run: npm run check
+      - name: Upload test reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-reports
+          path: |
+            test-results/
+            playwright-report/
+          if-no-files-found: ignore
