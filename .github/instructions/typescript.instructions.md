@@ -1,6 +1,7 @@
 ---
-applyTo: "**/*.ts,**/*.tsx"
+applyTo: '**/*.ts,**/*.tsx'
 ---
+
 # TypeScript and Playwright conventions
 
 - Prefer strict TypeScript; avoid `any`, untyped public parameters and implicit dynamic property access.

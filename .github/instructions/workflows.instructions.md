@@ -1,6 +1,7 @@
 ---
-applyTo: "**/*.yml,**/*.yaml"
+applyTo: '**/*.yml,**/*.yaml'
 ---
+
 # Pipeline and release guidance
 
 - Use reusable Azure Pipelines templates with parameterized test project paths, environments and commands.

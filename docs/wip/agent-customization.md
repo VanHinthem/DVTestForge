@@ -6,13 +6,13 @@ Status: initial repository baseline, 2026-11-13.
 
 Keep AI-assisted contributions consistent, auditable and safe, while avoiding an unnecessarily large set of permanent instructions.
 
-| Layer | Location | Purpose |
-|---|---|---|
-| Cross-agent rules | `AGENTS.md` | Mission, boundaries, quality/safety guardrails |
-| Copilot repository rules | `.github/copilot-instructions.md` | Always-on Copilot-specific context |
-| Path rules | `.github/instructions/*.instructions.md` | TypeScript, pipelines and documentation |
-| Specialist agents | `.github/agents/*.agent.md` | Roles for architecture, Dataverse UI, Test Plans |
-| On-demand skills | `.github/skills/*/SKILL.md` | Repeatable implementation and review workflows |
+| Layer                    | Location                                 | Purpose                                          |
+| ------------------------ | ---------------------------------------- | ------------------------------------------------ |
+| Cross-agent rules        | `AGENTS.md`                              | Mission, boundaries, quality/safety guardrails   |
+| Copilot repository rules | `.github/copilot-instructions.md`        | Always-on Copilot-specific context               |
+| Path rules               | `.github/instructions/*.instructions.md` | TypeScript, pipelines and documentation          |
+| Specialist agents        | `.github/agents/*.agent.md`              | Roles for architecture, Dataverse UI, Test Plans |
+| On-demand skills         | `.github/skills/*/SKILL.md`              | Repeatable implementation and review workflows   |
 
 ## Roles and skills
 

@@ -2,6 +2,7 @@
 name: ado-results
 description: Integrate Playwright Test execution and JUnit reporting with Azure Pipelines and verify accurate result association with Azure DevOps Test Plans.
 ---
+
 # Azure DevOps reporting playbook
 
 1. Define stable mapping across test ID, Test Case work item, test plan/suite, test point, configuration and Azure Pipeline run.
