@@ -22,7 +22,10 @@ async function main() {
     throw new Error('DATAVERSE_READY_SELECTOR is required. Use a locator verified in your app.');
   }
 
-  const browser = await chromium.launch({ headless: false });
+  const browser = await chromium.launch({
+    channel: 'msedge',
+    headless: false,
+  });
   const prompt = createInterface({ input: stdin, output: stdout });
   try {
     const context = await browser.newContext();

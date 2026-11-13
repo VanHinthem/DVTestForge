@@ -10,3 +10,8 @@ export {
 } from './auth/dataverse-auth.js';
 export { createDataverseTest } from './fixtures/dataverse-test.js';
 export type { DataverseFixtures, DataverseTestOptions } from './fixtures/dataverse-test.js';
+export {
+  acquireDataverseAppToken,
+  probeDataverseAppIdentity,
+} from './auth/dataverse-app-credentials.js';
+export type { DataverseAppCredentials } from './auth/dataverse-app-credentials.js';
