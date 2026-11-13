@@ -8,3 +8,5 @@ export {
   resolveAuthStatePath,
   DEFAULT_AUTH_STATE_PATH,
 } from './auth/dataverse-auth.js';
+export { createDataverseTest } from './fixtures/dataverse-test.js';
+export type { DataverseFixtures, DataverseTestOptions } from './fixtures/dataverse-test.js';
