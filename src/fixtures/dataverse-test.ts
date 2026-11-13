@@ -28,7 +28,7 @@ export function createDataverseTest(options: DataverseTestOptions = {}) {
 
   return base.extend<DataverseFixtures>({
     storageState: authStatePath,
-    dataverseConfig: async ({}, use) => {
+    dataverseConfig: async (_fixtures, use) => {
       await use(loadDataverseConfig(environment));
     },
     dataverseApp: async ({ page }, use) => {
