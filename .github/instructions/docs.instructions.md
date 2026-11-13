@@ -1,6 +1,7 @@
 ---
-applyTo: "docs/**/*.md,README.md"
+applyTo: 'docs/**/*.md,README.md'
 ---
+
 # Documentation guidance
 
 - Write in clear technical English.

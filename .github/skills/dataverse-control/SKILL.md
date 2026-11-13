@@ -2,6 +2,7 @@
 name: dataverse-control
 description: Build, test, or review a reusable Playwright TypeScript control for Dataverse model-driven forms, grids, lookups, command bars, tabs or business process flows.
 ---
+
 # Dataverse control implementation playbook
 
 Use this skill when adding or fixing model-driven app UI controls.

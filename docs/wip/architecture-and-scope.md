@@ -13,21 +13,21 @@ The framework starts **from scratch**: there is no runtime or backwards-compatib
 
 ## Working decisions
 
-| Topic | Direction | Status |
-|---|---|---|
-| Name | DVTestForge | Agreed |
-| Documentation language | English | Agreed |
-| Test automation | Playwright Test + TypeScript | Preferred direction |
-| UI abstraction | Own Dataverse-specific implementation, built on Playwright primitives | Agreed |
-| Existing SpecFlow/EasyRepro | No legacy compatibility layer | Agreed |
-| Existing Gherkin | Preserve as source material for migration to Azure DevOps Test Cases | Preferred direction |
-| Functional source of truth after migration | Azure DevOps Test Plans, not duplicate maintained Gherkin files | Proposed |
-| Test code ownership | Product repositories | Agreed |
-| Shared framework ownership | Dedicated central GitHub repository, versioned npm packages | Agreed |
-| Distribution | Internal npm registry / Azure Artifacts (actual organization scope TBD) | Proposed |
-| Execution | Product Azure Pipelines using reusable templates | Agreed direction |
-| Results | Publish to pipeline; associate with the correct Test Plans test case, run, test point and configuration | Required; integration to validate |
-| AI | Optional assistance for drafting code from test cases, with PR review | Proposed |
+| Topic                                      | Direction                                                                                               | Status                            |
+| ------------------------------------------ | ------------------------------------------------------------------------------------------------------- | --------------------------------- |
+| Name                                       | DVTestForge                                                                                             | Agreed                            |
+| Documentation language                     | English                                                                                                 | Agreed                            |
+| Test automation                            | Playwright Test + TypeScript                                                                            | Preferred direction               |
+| UI abstraction                             | Own Dataverse-specific implementation, built on Playwright primitives                                   | Agreed                            |
+| Existing SpecFlow/EasyRepro                | No legacy compatibility layer                                                                           | Agreed                            |
+| Existing Gherkin                           | Preserve as source material for migration to Azure DevOps Test Cases                                    | Preferred direction               |
+| Functional source of truth after migration | Azure DevOps Test Plans, not duplicate maintained Gherkin files                                         | Proposed                          |
+| Test code ownership                        | Product repositories                                                                                    | Agreed                            |
+| Shared framework ownership                 | Dedicated central GitHub repository, versioned npm packages                                             | Agreed                            |
+| Distribution                               | Internal npm registry / Azure Artifacts (actual organization scope TBD)                                 | Proposed                          |
+| Execution                                  | Product Azure Pipelines using reusable templates                                                        | Agreed direction                  |
+| Results                                    | Publish to pipeline; associate with the correct Test Plans test case, run, test point and configuration | Required; integration to validate |
+| AI                                         | Optional assistance for drafting code from test cases, with PR review                                   | Proposed                          |
 
 ## Separation of responsibilities
 
@@ -156,26 +156,32 @@ Before designing the adapter, validate current native Azure DevOps support for P
 ## Initial proof of concept / acceptance criteria
 
 **P0 — Gherkin import**
+
 - Import one representative existing feature (including at least one expected result) into Test Plans.
 - Preserve mapping to source feature/scenario, handle re-import without duplicates, confirm meaning with a functional consultant.
 
 **P1 — Own Playwright-based model-driven UI**
+
 - Implement one end-to-end scenario in TypeScript: create a Dataverse record with a lookup, save and assert persisted state.
 - No EasyRepro, Selenium or third-party Dataverse automation wrapper dependency.
 - Run locally with secure test authentication.
 
 **P2 — Central package and product consumer**
+
 - Publish an initial versioned package from central repository and consume it from a separate sample/product repo.
 - Demonstrate safe independent upgrade from one package version to another.
 
 **P3 — Azure Pipeline**
+
 - Execute tests on an agent; publish JUnit reports, screenshots and traces with relevant retention/privacy controls.
 
 **P4 — Azure Test Plans**
+
 - Demonstrate one-to-one mapping from Playwright test to intended Azure DevOps Test Case **and** correct test point/configuration.
 - Show a passed result and a failing result in both Pipeline reporting and Test Plans, or document any missing native capability and a verified alternative.
 
 **P5 — AI-assisted test authoring (optional)**
+
 - Generate a draft TypeScript test from a Test Case, review in PR, demonstrate how changed test-case steps trigger review.
 
 ## Non-goals for the first iteration
