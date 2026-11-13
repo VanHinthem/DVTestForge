@@ -7,6 +7,7 @@ This bootstrap introduces a single root package (instead of prematurely publishi
 ## Explicit limitations
 
 - **Not validated against npm registry:** dependency resolution was unavailable from the execution environment. Verify versions and install successfully in GitHub Actions.
+- **Formatting gate not enabled yet:** run `npm run format:check`, normalize all files with `npx prettier --write .`, and enable it in `npm run check` after reviewing formatting changes.
 - **No lockfile yet:** run `npm install` in a networked environment and commit `package-lock.json`. Change all automated installs to `npm ci` before treating CI as reproducible.
 - **Not publishable yet:** `private: true` intentionally prevents accidental publishing; decide package name/scope and feed before a release.
 - **No Dataverse controls yet:** the included `test-case-id` module only demonstrates independently testable framework code.
