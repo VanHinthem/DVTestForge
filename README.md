@@ -11,6 +11,8 @@ A central **Playwright Test + TypeScript** automation framework for Microsoft Da
 - Existing Gherkin scenarios may be imported into Azure DevOps Test Plans; direct Gherkin execution is not required.
 - The framework has no runtime dependency on EasyRepro, SpecFlow, Selenium, or Microsoft's Power Platform Playwright samples.
 
+For [local authentication setup and reusable Playwright fixtures](docs/wip/auth-setup-and-fixtures.md), see the setup guide. Entra sign-in is manual for local development; CI authentication has not yet been implemented.
+
 See [architecture and scope](docs/wip/architecture-and-scope.md) and [contribution instructions](AGENTS.md).
 
 ## Local development
