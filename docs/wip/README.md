@@ -4,7 +4,8 @@ This directory contains **working design notes** for DVTestForge. They are discu
 
 ## Documents
 
-- [Architecture and Scope](architecture-and-scope.md) — vision, current decisions, responsibilities, proposed architecture, risks, open questions, and proof-of-concept acceptance criteria.
+- [Architecture and Scope](architecture-and-scope.md) — vision, decisions, architecture, risks, and PoC acceptance criteria.
+- [AI Agent Customization](agent-customization.md) — instructions, specialized agents, skills, governance and validation checklist.
 
 ## Current direction
 
